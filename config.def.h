@@ -24,6 +24,11 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	"sh", "-c", "~/.fehbg", NULL,
+	"sh", "-c", "setxkbmap -option 'caps:swapescape'", NULL,
+	"picom", NULL,
+	"nm-applet", NULL,
+	"dunst", NULL,
 	NULL /* terminate */
 };
 
