@@ -30,7 +30,7 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"sh", "-c", "~/.fehbg", NULL,
-	"sh", "-c", "setxkbmap -option 'caps:swapescape'", NULL,
+	"sh", "-c", "setxkbmap -layout us,ru,tr,fr,de -option grp:ctrls_toggle,caps:swapescape", NULL,
 	"sh", "-c", "~/.screenlayout/set_monitors.sh", NULL,
 	"picom", NULL,
 	"nm-applet", NULL,
