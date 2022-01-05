@@ -7,7 +7,7 @@ static const unsigned int gappih    = 20;       /* horiz inner gap between windo
 static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
 static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
-static       int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
+static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -117,6 +117,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_F10,		spawn,		SHCMD("pamixer --allow-boost -d 15") },
 	{ MODKEY,			XK_F11,		spawn,		SHCMD("pamixer --allow-boost -i 5") },
 	{ MODKEY|ShiftMask,		XK_F11,		spawn,		SHCMD("pamixer --allow-boost -i 15") },
+	{ MODKEY,			XK_F6,		spawn,		SHCMD("playerctl previous") },
+	{ MODKEY,			XK_F7,		spawn,		SHCMD("playerctl play-pause") },
+	{ MODKEY,			XK_F8,		spawn,		SHCMD("playerctl next") },
+	{ MODKEY|Mod1Mask,		XK_b,		spawn, 		SHCMD("rofi-bluetooth") },
 	// Nobody needs to control their gaps this much lmao
 	/*{ MODKEY|Mod1Mask,              XK_i,      incrigaps,      {.i = +1 } },
 	 *{ MODKEY|Mod1Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
