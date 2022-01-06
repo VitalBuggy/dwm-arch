@@ -95,6 +95,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
+#include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -114,8 +115,10 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_u,      incrgaps,       {.i = -1 } },
 	{ MODKEY,			XK_F9,		spawn,		SHCMD("pamixer -t") },
 	{ MODKEY,			XK_F10,		spawn,		SHCMD("pamixer --allow-boost -d 5") },
+	{ 0,				XF86XK_AudioLowerVolume,spawn,	SHCMD("pamixer --allow-boost -d 5") },
 	{ MODKEY|ShiftMask,		XK_F10,		spawn,		SHCMD("pamixer --allow-boost -d 15") },
 	{ MODKEY,			XK_F11,		spawn,		SHCMD("pamixer --allow-boost -i 5") },
+	{ 0,				XF86XK_AudioRaiseVolume,spawn,	SHCMD("pamixer --allow-boost -i 5") },
 	{ MODKEY|ShiftMask,		XK_F11,		spawn,		SHCMD("pamixer --allow-boost -i 15") },
 	{ MODKEY,			XK_F6,		spawn,		SHCMD("playerctl previous") },
 	{ MODKEY,			XK_F7,		spawn,		SHCMD("playerctl play-pause") },
