@@ -124,6 +124,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_F7,		spawn,		SHCMD("playerctl play-pause") },
 	{ MODKEY,			XK_F8,		spawn,		SHCMD("playerctl next") },
 	{ MODKEY|Mod1Mask,		XK_b,		spawn, 		SHCMD("rofi-bluetooth") },
+	{ MODKEY|Mod1Mask,		XK_a,		spawn, 		SHCMD("aniwrapper -T ~/.config/rofi/aniwrapper.rasi -q") },
 	// Nobody needs to control their gaps this much lmao
 	/*{ MODKEY|Mod1Mask,              XK_i,      incrigaps,      {.i = +1 } },
 	 *{ MODKEY|Mod1Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
