@@ -30,11 +30,13 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"sh", "-c", "~/.fehbg", NULL,
-	"sh", "-c", "setxkbmap -layout us,ru,tr,fr,de -option grp:ctrls_toggle,caps:swapescape", NULL,
+	"sh", "-c", "setxkbmap -option caps:swapescape", NULL,
 	"sh", "-c", "~/.screenlayout/set_monitors.sh", NULL,
+	"sh", "-c", "spotifyd -b pulseaudio --no-daemon", NULL,
 	"picom", NULL,
 	"nm-applet", NULL,
 	"dunst", NULL,
+	"discord", NULL,
 	NULL /* terminate */
 };
 
@@ -48,6 +50,8 @@ static const Rule rules[] = {
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Alacritty",NULL,    NULL,           0,         0,          1,           0,        -1 },
+	{ "Spotify",  NULL,    NULL,           1<<3,      0,          0,           0,        1 },
+	{ "discord",  NULL,    NULL,           1<<4,      0,          0,           0,        1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -125,6 +129,12 @@ static Key keys[] = {
 	{ MODKEY,			XK_F8,		spawn,		SHCMD("playerctl next") },
 	{ MODKEY|Mod1Mask,		XK_b,		spawn, 		SHCMD("rofi-bluetooth") },
 	{ MODKEY|Mod1Mask,		XK_a,		spawn, 		SHCMD("aniwrapper -T ~/.config/rofi/aniwrapper.rasi -q") },
+	// The Struggle of being a polyglot
+	{ MODKEY,			XK_F1,		spawn,		SHCMD("setxkbmap us") },
+	{ MODKEY,			XK_F2,		spawn,		SHCMD("setxkbmap ru") },
+	{ MODKEY,			XK_F3,		spawn,		SHCMD("setxkbmap tr") },
+	{ MODKEY,			XK_F4,		spawn,		SHCMD("setxkbmap fr") },
+	{ MODKEY,			XK_F5,		spawn,		SHCMD("setxkbmap de") },
 	// Nobody needs to control their gaps this much lmao
 	/*{ MODKEY|Mod1Mask,              XK_i,      incrigaps,      {.i = +1 } },
 	 *{ MODKEY|Mod1Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
